@@ -15,9 +15,9 @@ def no_of_users(graph):
 	return len(practice_graph.nodes())
 
 def draw_graph(graph):
-	nx.draw(graph, with_labels=True)
+	nx.draw(graph , with_labels=True)
 	plt.savefig("graph-drawing.pdf")
-    plt.show()
+	plt.show()
 
 def friends(graph, user):
     return set(graph.neighbors(user))  
@@ -48,12 +48,8 @@ def number_of_common_friends_map(graph, user):
 	return dict_of_common_friends_count	
 
 def number_map_to_sorted_list(map_of_common_friends):
-    sorted_list = [v[0] for v in sorted(map_of_common_friends.iteritems(), key=lambda (k, v): (-v, k))]
+	sorted_list = [v[0] for v in sorted(map_of_common_friends.iteritems(), key=lambda (k, v): (-v, k))]
 	return sorted_list
 
-
-
-
-
-
-
+def recommend_by_number_of_common_friends(graph, user):
+    return number_map_to_sorted_list(number_of_common_friends_map(graph,user))
