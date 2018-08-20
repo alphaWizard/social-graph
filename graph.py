@@ -77,7 +77,7 @@ def network_triads(graph,user):
 
 
 def no_of_components(graph):
-	return len(nx.connected_components(G))
+	return len(list(nx.connected_components(graph)))
 
 
 

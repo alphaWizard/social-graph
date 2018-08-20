@@ -28,7 +28,7 @@ connect(network,"Escalus","Mercutio")
 connect(network,"Paris","Mercutio")
 
 
-draw_graph(network)
+# draw_graph(network)
 
 # Testing with assertions 
 assert len(network.nodes()) == 11
@@ -47,5 +47,7 @@ assert recommend_by_influence(network, "Mercutio") == ['Capulet', 'Montague', 'B
 print in_same_network(network,"Mercutio","Nurse")
 
 print network_triads(network,"Juliet")
+
+print no_of_components(network)	
 
 

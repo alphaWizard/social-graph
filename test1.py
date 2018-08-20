@@ -19,4 +19,6 @@ print recommend_by_number_of_common_friends(network,"a")
 
 print recommend_by_influence(network,"a")
 		
+print no_of_components(network)	
+	
 print in_same_network(network,"g","b")
