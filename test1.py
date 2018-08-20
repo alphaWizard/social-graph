@@ -1,19 +1,22 @@
 from graph import *
 
 network = create_graph()
-join(network,"a")
-join(network,"b")
-join(network,"c")
-join(network,"d")
-join(network,"e")
-join(network,"f")
+join(network,"g")
 connect(network,"a","b")
-connect(network,"a","d")
-connect(network,"d","b")
+connect(network,"a","c")
 connect(network,"b","c")
-connect(network,"c","e")
-connect(network,"e","d")
+connect(network,"b","d")
+connect(network,"c","d")
+connect(network,"c","f")
+connect(network,"d","e")
+connect(network,"d","f")
 
-print recommend_by_number_of_common_friends(network,"e")
+draw_graph(network)
 
+print are_friends(network,"c","a")
+print network_triads(network,"c")
+print recommend_by_number_of_common_friends(network,"a")
 
+print recommend_by_influence(network,"a")
+		
+print in_same_network(network,"g","b")

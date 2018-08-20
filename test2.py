@@ -28,8 +28,9 @@ connect(network,"Escalus","Mercutio")
 connect(network,"Paris","Mercutio")
 
 
+draw_graph(network)
 
-#Testing with assertions 
+# Testing with assertions 
 assert len(network.nodes()) == 11
 assert len(network.edges()) == 17
 
@@ -39,7 +40,12 @@ assert mutual_friends(network, "Mercutio", "Juliet") == set(["Romeo"])
 assert mutual_friends(network, "Mercutio", "Capulet") == set(["Escalus", "Paris"])
 assert number_of_common_friends_map(network, "Mercutio") == { 'Benvolio': 1, 'Capulet': 2, 'Friar Laurence': 1, 'Juliet': 1, 'Montague': 2 }
 assert recommend_by_number_of_common_friends(network, "Mercutio") == ['Capulet', 'Montague', 'Benvolio', 'Friar Laurence', 'Juliet']
-print influence_map(network, "Mercutio") == { 'Benvolio': 0.2, 'Capulet': 0.5833333333333333, 'Friar Laurence': 0.2, 'Juliet': 0.2, 'Montague': 0.45 }
+assert influence_map(network, "Mercutio") == { 'Benvolio': 0.2, 'Capulet': 0.5833333333333333, 'Friar Laurence': 0.2, 'Juliet': 0.2, 'Montague': 0.45 }
 assert recommend_by_influence(network, "Mercutio") == ['Capulet', 'Montague', 'Benvolio', 'Friar Laurence', 'Juliet']
+
+
+print in_same_network(network,"Mercutio","Nurse")
+
+print network_triads(network,"Juliet")
 
 
