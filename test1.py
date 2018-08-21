@@ -1,5 +1,6 @@
 from graph import *
 
+
 network = create_graph()
 join(network,"g")
 connect(network,"a","b")
@@ -10,6 +11,13 @@ connect(network,"c","d")
 connect(network,"c","f")
 connect(network,"d","e")
 connect(network,"d","f")
+
+
+## another way of adding with edges-list
+# left = tuple("AAABDE")
+# right = tuple("BCEEEF")
+# edges = list(zip(left, right))
+# network.add_edges_from(edges)
 
 draw_graph(network)
 
@@ -22,3 +30,7 @@ print recommend_by_influence(network,"a")
 print no_of_components(network)	
 	
 print in_same_network(network,"g","b")
+
+# stop_further_change(network)
+# connect(network,"s","a")
+print user_summary(network,"a")
