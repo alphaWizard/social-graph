@@ -28,7 +28,9 @@ connect(network,"Escalus","Mercutio")
 connect(network,"Paris","Mercutio")
 
 
-# draw_graph(network)
+draw_graph(network)
+
+print network_summary(network)
 
 # Testing with assertions 
 assert len(network.nodes()) == 11
@@ -50,4 +52,4 @@ print network_triads(network,"Juliet")
 
 print no_of_components(network)	
 
-
+print important_persons_in_network(network)
