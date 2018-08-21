@@ -15,6 +15,7 @@ def join(graph,user):
 def are_friends(graph,user1,user2):
 	return graph.has_edge(user1,user2)
 
+
 def connect(graph,user1,user2):
 	if not graph.has_node(user1):
 		join(graph,user1)
@@ -22,6 +23,10 @@ def connect(graph,user1,user2):
 		join(graph,user2)	
 	if not graph.has_edge(user1,user2):
 		graph.add_edge(user1,user2)
+
+
+def stop_further_change(graph):
+	nx.freeze(graph)
 
 
 def no_of_users(graph):
@@ -75,6 +80,13 @@ def network_triads(graph,user):
 	return triads_list				
 
 
+def user_summary(graph,user):
+	return nx.info(graph,n=user)
+
+
+def network_summary(graph):
+	return nx.info(graph,n=None)	
+
 
 def no_of_components(graph):
 	return len(list(nx.connected_components(graph)))
@@ -113,8 +125,8 @@ def number_of_common_friends_map(graph, user):
 
 
 
-def number_map_to_sorted_list(map_of_common_friends):
-	sorted_list = [v[0] for v in sorted(map_of_common_friends.iteritems(), key=lambda (k, v): (-v, k))]
+def number_map_to_sorted_list(map_dict):
+	sorted_list = [v[0] for v in sorted(map_dict.iteritems(), key=lambda (k, v): (-v, k))]
 	return sorted_list
 
 
@@ -141,3 +153,15 @@ def influence_map(graph, user):
 
 def recommend_by_influence(graph, user):
 	return number_map_to_sorted_list(influence_map(graph,user))
+
+
+
+def importance_map(graph):
+	degree_centrality = nx.degree_centrality(graph)
+	return degree_centrality
+
+
+
+def important_persons_in_network(graph):
+	importance_dict = importance_map(graph)
+	return number_map_to_sorted_list(importance_dict)
