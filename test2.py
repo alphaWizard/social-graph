@@ -28,7 +28,7 @@ connect(network,"Escalus","Mercutio")
 connect(network,"Paris","Mercutio")
 
 
-draw_graph(network)
+# draw_graph(network)
 
 print network_summary(network)
 
